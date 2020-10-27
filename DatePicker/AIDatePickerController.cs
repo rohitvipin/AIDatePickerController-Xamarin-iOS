@@ -17,6 +17,7 @@ namespace AI
         public Action<AIDatePickerController> Ok { get; set; }
         public string CancelText { get; set; }
         public Action<AIDatePickerController> Cancel { get; set; }
+	public UIDatePickerStyle PreferredDatePickerStyle { get; set; } = UIDatePickerStyle.Automatic;
 
 	    public float FontSize { get; set; } = 16;
 		public NSDateFormatter DateFormatter { get; set; } = new NSDateFormatter();
@@ -41,7 +42,8 @@ namespace AI
                 Date = this.SelectedDateTime.ToNSDate(),
                 BackgroundColor = BackgroundColor,
                 Mode = Mode,
-                MinuteInterval = MinuteInterval
+                MinuteInterval = MinuteInterval,
+		PreferredDatePickerStyle = PreferredDatePickerStyle
 			};
 		    if (MinimumDateTime != null)
 		        datePicker.MinimumDate = MinimumDateTime.Value.ToNSDate();
